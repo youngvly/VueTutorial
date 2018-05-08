@@ -1,0 +1,40 @@
+<html class="no-js">
+
+<head>
+    <title> v-model example </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .example {
+            border: 1px blue solid;
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+    <div id='app'>
+       <!--HTML태그 데이터를 화면에 출력하기 위한 디렉티브
+        v-html ="html 태그가 담긴 변수명"-->
+        <h1>v-html예제입니다</h1>
+        <div v-html="htmlmessage"></div>
+        </br>
+        <!--일반 변수로 보내면 string으로 처리됨-->
+        <div>{{htmlmessage}}</div>
+    
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                htmlmessage :'<span><b> v-html 디렉티브 </b></span>'
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

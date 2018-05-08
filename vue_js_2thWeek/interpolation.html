@@ -1,0 +1,54 @@
+<html class="no-js">
+
+<head>
+    <meta charset="UTF-8">
+    <title> v-model example </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .example {
+            border: 1px blue solid;
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id='app'>
+        <div class="example">
+            <h3>기본 데이터는 다음과 같습니다.</h3>
+            <div class="example">
+                <!--변수로 바꾸게 하려면 {{변수명}} -->
+                <span v-once>message : {{message}}</span>
+                <!--v-once : 액션이 취해져도 변수는 바뀌지만 화면값은 바뀌지 않을것.-->
+                <br/>
+                <span>goodbye : {{goodbye}}</span>
+            </div>
+            <!--버튼이 클릭되면 메세지값이 바뀌도록  v-on:이벤트이름="메소드이름 == @clicked"-->
+            <button v-on:click="clicked" >메세지 변경</button>
+            <button @click="clicked" >메세지 변경</button>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message :"안녕하세요",
+                goodbye :'안녕히 가세요!'          
+            },
+            methods:{
+                //메소드이름 : function(){}
+                clicked:function(){
+                    //현재 클래스에 있는 message 변수이기때문에
+                    //데이터가 바뀌면 뷰도 바뀐다 >> 바인딩 되었다.
+                    this.message = '버튼이 클릭되었습니다.';
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

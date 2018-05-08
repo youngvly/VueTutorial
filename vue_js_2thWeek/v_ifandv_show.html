@@ -1,0 +1,64 @@
+<html class="no-js">
+
+<head>
+    <title> v-model example </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .example {
+            border: 1px blue solid;
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+    <div id='app'>
+       <div class="example">
+           <!--조건에 따라 블록을 on/off하는 디렉티브 v-if = 값 , v-elseif , v-else-->
+            <h3>v-if 예제문입니다. </h3>
+            </BR>
+            <!--radiovalue가 연결되었으므로 value값으로 변수값이 바뀜-->
+            <input type="radio" v-model="radiovalue" value='0' name='g1' > 첫번째
+            <input type="radio" v-model="radiovalue" value='1' name='g1' > 두번째
+            <input type="radio" v-model="radiovalue" value='2' name='g1' > 세번째
+
+            <p>
+                <span v-if="radiovalue == 0" > 첫번째 클릭됨.</span>
+                <span v-else-if="radiovalue == 1" > 두번째 클릭됨.</span>
+                <span v-else> 세번째 클릭됨.</span>
+            </p>
+       </div>
+
+       <!--v-show : 값이 true가 되면 p태그의 하단부가 나타남. 거짓이면 보여주지않는다.-->
+       <div class="example">
+           <h3> v-show 예제입니다. </h3>
+           <input type="checkbox" v-model="ischecked" value='0' name='g2'>체크박스
+           <p v-show ="ischecked">
+               <span>체크박스가 체크됨.</span>
+           </p> 
+       </div>
+       <!--둘의 차이점 : v-if="true"하면 같지않나?
+        랜더링에서 차이가 있다.
+        v-if는 조건이 거짓인경우 랜더링하지 않는다. v-show는 랜더링을 해둔다. (미리그려둔다)
+        
+        - v-if의 토글비용은 높고 초기렌더링비용이 낮다(조건이 만족할때마다 랜더링함)
+        - v-show는 시작할때 느리지만 실행할때는 빠름
+        실행 도준 조건이 바뀌지 않는다면 v-if, 실행도준 조건이 자주바뀐다면 v-show-->
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                radiovalue : 0,
+                ischecked : false,
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<html class="no-js">
+
+<head>
+    <title> v-model example </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .example {
+            border: 1px blue solid;
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+    <meta charset="UTF-8"/>
+</head>
+
+<body>
+    <div id='app'>
+        <!--입력가능한 태그와 데이터를 양방향 바인딩하는 디렉티브
+        input창에서 입력하면 text변수가 바뀐다!-->
+        <h1>v_model 예제입니다</h1>
+        <div class ="example">
+            <input v-model="text"/>
+            <p>
+                <span> input value1 : {{text}} </span>
+                </br>
+                <span> input value2 : {{text}} </span>
+                </br>
+                <span> input value3 : {{text}} </span>
+            </p>
+        </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                text :''
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>

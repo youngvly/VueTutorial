@@ -1,0 +1,57 @@
+<html class="no-js">
+
+<head>
+    <title> v-model example </title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <style>
+        .example {
+            border: 1px blue solid;
+            margin: 5px;
+            padding: 10px;
+        }
+    </style>
+    <meta charset="UTF-8" />
+</head>
+
+<body>
+    <div id='app'>
+       <h1> v_bind 예제입니다. </h1>
+       <div class ='example'>
+           <h3> v-bind 로 바인딩 해 봅시다. </h3>
+           <div>
+               <!--Vue에있는 message 내용이 마우스오버하면 팝업메세지?설명창?에나옴-->
+               <span v-bind:title="message"> 마우스오버  </span>
+               <br/><br/>
+               <!--v-bind 생략 가능-->
+               <span :title="message"> 마우스오버2  </span>
+           </div>
+           <!--JQuery에서는 값을 바꾸려면 DOM을 가져와서 id에서 가져와야하는데
+            Vue는 (MVVM)ModelVue View Model의 장점 및 패턴 -->
+           <button v-on:click = "clicked"> 메세지 변경 </button>
+           <br/>
+           <!--이벤트리스너 v-on == @ 로 대체가능 -->
+           <button @click = "clicked"> 메세지 변경2 </button>
+       </div>
+    </div>
+
+    <script>
+        var app = new Vue({
+            el: '#app',
+            data: {
+                message : 'Vue.js 는 재미있습니다.'
+            },
+            methods:{
+                //메소드이름 : function(){}
+                clicked:function(){
+                    //현재 클래스에 있는 message 변수이기때문에
+                    //데이터가 바뀌면 뷰도 바뀐다 >> 바인딩 되었다.
+                    this.message = '버튼이 클릭되었습니다.';
+                }
+            }
+        })
+    </script>
+
+
+</body>
+
+</html>
